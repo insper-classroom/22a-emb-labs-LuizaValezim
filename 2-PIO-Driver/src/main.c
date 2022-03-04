@@ -266,6 +266,12 @@ uint32_t _pio_get(Pio *p_pio, const pio_type_t ul_type, const uint32_t ul_mask)
 	}
 }
 
+void _delay_ms (int time) {
+	for (int i = 0; i < (300*1000/2)*time; i++) {
+		asm("nop");
+	}
+}
+
 /************************************************************************/
 /* Main                                                                 */
 /************************************************************************/
@@ -283,9 +289,9 @@ int main(void)
 	  if (!_pio_get(BUT_PIO, PIO_INPUT, BUT_PIO_IDX_MASK)) {
 		  for (int i = 0; i < 5; i++) {
 			  _pio_clear(LED_PIO, LED_PIO_IDX_MASK);
-			  delay_ms(100);
+			  _delay_ms(100);
 			  _pio_set(LED_PIO, LED_PIO_IDX_MASK);      // Coloca 1 no pino LED
-			  delay_ms(100);
+			  _delay_ms(100);
 		  }
 	  }
 	  
@@ -293,9 +299,9 @@ int main(void)
 	  else if (!_pio_get(BUT1_PIO, PIO_INPUT, BUT1_PIO_IDX_MASK)) {
 		  for (int i = 0; i < 5; i++) {
 			  _pio_clear(LED1_PIO, LED1_PIO_IDX_MASK);
-			  delay_ms(100);
+			  _delay_ms(100);
 			  _pio_set(LED1_PIO, LED1_PIO_IDX_MASK);      // Coloca 1 no pino LED
-			  delay_ms(100);
+			  _delay_ms(100);
 		  }
 	  }
 	  
@@ -303,9 +309,9 @@ int main(void)
 	  else if (!_pio_get(BUT2_PIO, PIO_INPUT, BUT2_PIO_IDX_MASK)) {
 		  for (int i = 0; i < 5; i++) {
 			  _pio_clear(LED2_PIO, LED2_PIO_IDX_MASK);
-			  delay_ms(100);
+			  _delay_ms(100);
 			  _pio_set(LED2_PIO, LED2_PIO_IDX_MASK);      // Coloca 1 no pino LED
-			  delay_ms(100);
+			  _delay_ms(100);
 		  }
 	  }
 	  
@@ -313,9 +319,9 @@ int main(void)
 	  else if (!_pio_get(BUT3_PIO, PIO_INPUT, BUT3_PIO_IDX_MASK)) {
 		  for (int i = 0; i < 5; i++) {
 			  _pio_clear(LED3_PIO, LED3_PIO_IDX_MASK);
-			  delay_ms(100);
+			  _delay_ms(100);
 			  _pio_set(LED3_PIO, LED3_PIO_IDX_MASK);      // Coloca 1 no pino LED
-			  delay_ms(100);
+			  _delay_ms(100);
 		  }
 	  }
 	  
