@@ -329,3 +329,11 @@ int main(void)
   
   return 0;
   }
+  
+  freq = 440; // Hz
+  t = 1/freq;
+  for (int i = 0; i < )
+	pio_clear();
+	delay_ms(t/2);
+	pio_set();
+	delay_ms(t/2);
